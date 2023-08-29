@@ -29,28 +29,46 @@
 			// Show filled name inside h1
             let name = document.getElementById("name").value
             let H1 = document.getElementById("dName")
-            
-
+			H1.innerText=name;
 		}
 
 		function showGender() {
 			// Show the selected gender inside h2
+			let gender = document.getElementById("gender").value
+            let H2 = document.getElementById("dGender")
+			H2.innerText=gender;
 		}
 
 		function showEmail() {
 			// Show the filled email inside h3
+			let email = document.getElementById("email").value
+            let H3 = document.getElementById("dEmail")
+			H3.innerText=email;
 		}
 
 		function showMobile() {
 			// Show the filled mobile inside h4
+			let mobile = document.getElementById("mobile").value
+            let H4 = document.getElementById("dMobile")
+			H4.innerText=mobile;
 		}
 
 		function resetForm() {
 			// Reset all the form elements to default values (blank "")
+			 document.getElementById("name").value=""
+		    document.getElementById("gender").value=""
+	        document.getElementById("email").value=""
+			document.getElementById("mobile").value=""
+
 		}
 
 		function resetDisplay() {
 			// Reset all the headings (h1, h2, h3, h4) to blank values
+			let H1 = document.getElementById("dName").innerText=""
+            let H2 = document.getElementById("dGender").innerText=""
+            let H3 = document.getElementById("dEmail").innerText=""
+            let H4 = document.getElementById("dMobile").innerText=""
+
 		}
 	</script>
 </body>
