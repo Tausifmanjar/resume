@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <input type="text" placeholder="Type here" id="myInput">
+    <button onclick="click_me()">Submit</button>
+    <h2 id="display">Entered Value is :</h2>
+
+</body>
+<script>
+ function click_me(){
+    let inp = document.getElementById("myInput").value
+             document.getElementById("display").innerText="Entered Value is : " + inp
+    alert(inp)
+
+ }
+</script>
+</html>
