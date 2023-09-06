@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        .box{
+          /* text-align: center; */
+           display: flex;
+           flex-direction: column;
+           /* justify-content: center; */
+           align-items: center;
+        }
+        .btn{
+            display: grid;
+            grid-template-columns: repeat(4,50px);
+            grid-template-rows: repeat(3,50px);
+        }
+        #enter{
+            width: 200px;
+            height: 50px;
+        }
+        #reset{
+            width: 200px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+    <div id="min">20</div>
+    <div id="max">90</div>
+    <h2  id="display"></h2>
+    <div class="btn">
+        <button>0</button>
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+    </div>
+    <button id="enter">Enter</button>
+    <button id="reset">Reset</button>
+</div>
+</body>
+<script>
+    let min = document.getElementById("min")
+    let max = document.getElementById("max")
+    let display = document.getElementById("display")
+
+    let btn = document.querySelectorAll(".btn > button")
+    let enter = document.getElementById("enter")
+    let reset = document.getElementById("reset")
+
+
+
+    for(let i = 0; i <btn.length; i++){
+        btn[i].addEventListener("click", function(){
+         display.innerText += btn[i].innerText
+        })
+    }
+   
+    enter.addEventListener("click",function(){
+        if(+display.innerText < +min.innerText){
+            min.innerText = display.innerText
+        }
+        if(+display.innerText > +max.innerText){
+            max.innerText = display.innerText
+        }
+        display.innerText = ""
+
+    })
+    reset.addEventListener("click",function(){
+        display.innerText = ""
+        min.innerText = "20"
+        max.innerText = "90"
+    })
+
+</script>
+
+</html>
