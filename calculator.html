@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+          .box{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+          }
+        .btn{
+            display: grid;
+            grid-template-columns: repeat(5,50px);
+            grid-template-rows: repeat(2,50px);
+        }
+        .operator{
+            display: grid;
+            grid-template-columns: repeat(5,50px);
+            grid-template-rows: repeat(1,50px);
+        }
+        #clear{
+            width: 250px;
+            height: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div class="box">
+        <h1 id="display"></h1>
+    <div class="btn">
+        <button>1</button>
+        <button>2</button>
+        <button>3</button>
+        <button>4</button>
+        <button>5</button>
+        <button>6</button>
+        <button>7</button>
+        <button>8</button>
+        <button>9</button>
+        <button>0</button>
+       
+
+    </div>
+    <div class="operator">
+        <button>+</button>
+        <button>-</button>
+        <button>*</button>
+        <button>/</button>
+    </div>
+    <button id="equal">=</button>
+
+    <button id="clear">clear</button>
+
+</div>
+</body>
+
+<script>
+let perform = document.querySelectorAll(".btn > button")
+let operator = document.querySelectorAll(".operator > button")
+let display = document.getElementById("display")
+let equal = document.getElementById("equal")
+let clear = document.getElementById("clear")
+
+
+
+let firstNum = "";
+let secondNum = "";
+let IsFirstNum = true;
+let operation = "";
+
+
+equal.addEventListener("click",function(){
+    display.innerText = calculate(firstNum,secondNum,operation)
+})
+
+
+
+
+for(let i = 0;  i < perform.length; i++){
+    perform[i].addEventListener("click",function(){
+       
+       if(IsFirstNum == true){
+        firstNum += perform[i].innerText;
+        display.innerText = firstNum;
+       }else{
+        secondNum += perform[i].innerText;
+        display.innerText = secondNum;
+       }
+   
+    })
+}
+
+for(let i = 0; i < operator.length; i++){
+    operator[i].addEventListener("click",function(){
+        IsFirstNum = false
+
+        operation = operator[i].innerText
+        // console.log(operation)
+    })
+}
+
+function calculate(firstNum,secondNum,operation){
+    // console.log(operation)
+    // console.log(operator)
+    switch(operation){
+        case "+" :
+            return Number(firstNum) + Number(secondNum)
+
+            case "-" :
+                return Number(firstNum) - Number(secondNum)
+
+            case "*" :
+            return Number(firstNum) * Number(secondNum)
+
+            case "/" :
+            return Number(firstNum) / Number(secondNum)
+    }
+}
+
+clear.addEventListener("click", function(){
+    // document.querySelector("display").innerText = ""
+    display.innerText = "0"
+    secondNum = ""
+})
+
+</script>
+</html>
