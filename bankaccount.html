@@ -1,0 +1,64 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+
+<body>
+
+</body>
+<script>
+    function Bankaccount(accountNumber, name, type, balance, isActiv) {
+        this.accountNumber = accountNumber;
+        this.name = name;
+        this.type = type;
+        this.balance = balance;
+        this.isActiv = isActiv;
+
+
+        this.deposit = function (amount) {
+            this.balance += amount;
+            console.log("Your updated balance is " + this.balance)
+        }
+
+        this.withdrawl = function (amount) {
+            if (this.isActiv == true) {
+                if (this.balance >= amount) {
+                    this.balance -= amount
+                    console.log("Your updated balance is " + this.balance)
+                } else {
+                    console.log("Insufficent balance")
+                }
+               
+            }
+
+        }
+
+    }
+    let acc1 = new Bankaccount(32523, "adda", "Savings", 200, true);
+    let acc2 = new Bankaccount(523525, "lalu", "Savings", 900, false);
+    let acc3 = new Bankaccount(3254323, "dada", "Savings", -5000, true);
+
+
+
+    acc1.deposit(20);
+    acc2.withdrawl(50);
+    acc3.withdrawl(200);
+
+    let total = 0
+    let arr = [acc1, acc2, acc3]
+
+    for (let i = 0; i < arr.length; i++) {
+        if (arr[i].isActiv == true) {
+            total += arr[i].balance
+        }
+    }
+    console.log(total)
+
+
+</script>
+
+</html>
