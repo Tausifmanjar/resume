@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function Vechile( brand, model, speed, fuelType){
+        this.brand = brand;
+        this.model = model;
+        this.speed = speed;
+        this.fuelType = fuelType;
+    }
+Vechile.prototype.accelerate = function(){
+    console.log("vechile is accelerating")
+}
+Vechile.prototype.brake = function(){
+    console.log("vechile is braking")
+}
+Vechile.prototype.refuel = function(){
+    console.log("vechile is refuling")
+}
+
+let vechile1 = new Vechile("mahindra","thar",200,"disel")
+console.log(vechile1)
+
+function Car( brand, model, speed, fuelType, numOfWheels){
+    Vechile.call(this, brand, model, speed, fuelType);
+    this.numOfWheels = numOfWheels;
+}
+
+Car.prototype.honk = function(){
+    console.log(`Car horn is blowning`)
+}
+
+Object.setPrototypeOf(Car.prototype,Vechile.prototype);
+
+let car1 = new Car("mahindra","thar",200,"disel")
+console.log(car1)
+
+
+function Airplane(numberofEngines,LandingGear){
+    this.numberofEngines = numberofEngines;
+    this.LandingGear = LandingGear;
+
+
+}
+Airplane.prototype.takeoff = function(){
+    console.log(`Airplane is taking off`);
+}
+
+let Airplane1 = new Airplane(2,1)
+console.log(Airplane1)
+
+
+let car2 = new Car("maruti","dzire",100,"petrol")
+console.log(car2)
+
+let Airplane2 = new Airplane(5,2)
+console.log(Airplane2)
+
+vechile1.accelerate()
+vechile1.brake()
+vechile1.refuel()
+
+</script>
+</html>

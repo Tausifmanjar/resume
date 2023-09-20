@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    function IPhoneGen1(ASIN, color, display, camera) {
+  this.ASIN = ASIN
+  this.color = color
+  this.display = display
+  this.camera = camera
+
+  this.dial = function () {
+    console.log("tring.. tring...")
+  }
+
+  this.sendMessage = function () {
+    console.log("Sending message...")
+  }
+
+  this.cameraClick = function () {
+    console.log("Camera clicked")
+  }
+}
+
+let iPhoneGen1First = new IPhoneGen1("B09X67JBQV", "Gray", "90mm", "2.0 MP")
+let iPhoneGen1Second = new IPhoneGen1("B09X67JBQV", "Gray", "90mm", "2.0 MP")
+let iPhoneGen1Third = new IPhoneGen1("B09X67JBQV", "Gray", "90mm", "2.0 MP")
+console.log(iPhoneGen1First)
+iPhoneGen1First.dial() 
+iPhoneGen1First.sendMessage()
+iPhoneGen1First.cameraClick()
+</script>
+</html>
