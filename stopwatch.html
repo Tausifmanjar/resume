@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        #Hr,#Min,#Sec,#Count{
+            font-size: 50px;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <div id="time">
+            <span id="Hr">00</span>
+            <span>Hr</span>
+            <span id="Min">00</span>
+            <span>Min</span>
+            <span id="Sec">00</span>
+            <span>Sec</span>
+            <span id="Count">00</span>
+        </div>
+        <div id="btn">
+            <button onclick="start()">Start</button>
+            <button onclick="stop()">Stop</button>
+            <button onclick="reset()">Reset</button>
+        </div>
+
+    </div>
+</body>
+<script>
+
+    var hr = 0;
+    var min = 0;
+    var sec = 0;
+    var count = 0;
+
+    var timer = false;
+    
+  function start(){
+    timer = true;
+    stopwatch();
+
+  }
+  function stop(){
+    timer = false;
+
+  }
+  function reset(){
+    timer = false;
+    hr = 0;
+    min = 0;
+    sec = 0;
+    count = 0;
+         document.getElementById("Count").innerHTML = "00";
+         document.getElementById("Sec").innerHTML = "00";
+         document.getElementById("Min").innerHTML = "00";
+         document.getElementById("Hr").innerHTML = "00";
+  }
+
+function stopwatch(){
+       if(timer == true){
+         count += 1;
+
+          if(count == 100){
+            sec += 1;
+            count = 0;
+          }
+          if(sec == 60){
+            min += 1;
+            sec = 0;
+          }
+          if(min == 60){
+            hr  += 1;
+            min = 0;
+            sec = 0;
+          }
+
+         document.getElementById("Count").innerHTML = count;
+         document.getElementById("Sec").innerHTML = sec;
+         document.getElementById("Min").innerHTML = min;
+         document.getElementById("Hr").innerHTML = hr;
+
+        setTimeout("stopwatch()", 10);
+
+       }
+}
+
+
+
+
+
+
+</script>
+</html>
