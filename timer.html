@@ -1,0 +1,94 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        button{
+            width: 80px;
+            height: 30px;
+            margin-top: 10px;
+        }
+        input{
+            height: 30px;
+            border-radius: 5px;
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <div id="container">
+        <input type="number" placeholder="Hour" id="hour" value="">
+        <input type="number" placeholder="Min" id="min" value="">
+        <input type="number" placeholder="Second" id="sec" value="">
+    </div>
+
+    <div id="button">
+        <button id="start">Start</button>
+        <button id="stop">Stop</button>
+        <button id="reset">Reset</button>
+    </div>
+</body>
+<script>
+    let hour = document.getElementById("hour")
+    let min  = document.getElementById("min")
+    let sec = document.getElementById("sec")
+
+    let start = document.getElementById("start")
+    let stop = document.getElementById("stop")
+    let reset = document.getElementById("reset")
+
+
+
+    var interval = null;
+    var total = 0;
+    
+   totalValue = () =>{
+    total = Number(hour.value)*3600 + Number(min.value)*60 + Number(sec.value);
+
+   }
+
+
+    Timer = () =>{
+        totalValue();
+        total--;
+
+
+        if(total >= 0){
+        var hr = Math.floor(total/3600);
+        var mt = Math.floor((total/60) - (hr * 60));
+        var sc = total -((hr*3600) + (mt * 60));
+
+        hour.value = hr;
+        min.value = mt;
+        sec.value = sc;
+    }
+    }
+
+   
+
+
+
+
+    start.addEventListener("click" , ()=>{
+        clearInterval(interval);
+        interval = setInterval(Timer,1000)
+    })
+
+    stop.addEventListener("click" , ()=>{
+        clearInterval(interval);
+    })
+    reset.addEventListener("click", ()=>{
+        clearInterval(interval);
+        hour.value = 0;
+        min.value = 0;
+        sec.value = 0;
+    })
+
+
+</script>
+</html>
