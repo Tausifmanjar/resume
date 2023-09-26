@@ -1,0 +1,134 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f7f7f7;
+            padding: 20px;
+        }
+
+        .container {
+            max-width: 600px;
+            background-color: #ffffff;
+            padding: 20px;
+            box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+            margin: auto;
+        }
+
+        h1,
+        h2 {
+            text-align: center;
+        }
+
+        .menu {
+            margin-top: 20px;
+        }
+
+        .food-item {
+            display: flex;
+            align-items: center;
+            margin: 10px 0;
+        }
+
+        .food-item label {
+            margin-left: 10px;
+        }
+
+        #order-btn {
+            display: block;
+            width: 100%;
+            padding: 10px;
+            background-color: #d91e18;
+            color: #ffffff;
+            text-align: center;
+            border: none;
+            cursor: pointer;
+            transition: background-color 0.3s;
+        }
+
+        #order-btn:hover {
+            background-color: #c41210;
+        }
+
+        .order-completed {
+            margin-top: 20px;
+            text-align: center;
+            background-color: #dff0d8;
+            padding: 20px;
+            border: 1px solid #d6e9c6;
+        }
+
+        #hidden {
+            display: none;
+        }
+        img{
+            width: 100px;
+            height: 100px;
+            border-radius: 5px;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <h1>McDonald’s Virtual Order System</h1>
+
+        <div class="menu">
+            <h2>Menu</h2>
+            <div class="food-item">
+                <img src="https://images.unsplash.com/photo-1571091718767-18b5b1457add?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxzZWFyY2h8MTB8fGJ1cmdlcnxlbnwwfHwwfHx8MA%3D%3D&w=1000&q=80"
+                    alt="Burger" class="food-image">
+                <input type="checkbox" id="burger" name="burger">
+                <label for="burger">Burger</label>
+            </div>
+
+            <div class="food-item">
+                <img src="https://food.fnr.sndimg.com/content/dam/images/food/fullset/2023/7/10/FN_mcdonalds-free-french-fries_s4x3.jpg.rend.hgtvcom.1280.1280.suffix/1689018378037.jpeg" alt="Fries" class="food-image">
+                <input type="checkbox" id="fries" name="fries">
+                <label for="fries">Fries</label>
+            </div>
+
+            <div class="food-item">
+                <img src="data:image/jpeg;base64,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" alt="Coke" class="food-image">
+                <input type="checkbox" id="coke" name="coke">
+                <label for="coke">Coke</label>
+            </div>
+
+            <!-- ... Add more items as required ... -->
+
+            <button id="order-btn">Order Food</button>
+        </div>
+
+        <div class="order-completed" id="hidden">
+            <h2>Order Completed!</h2>
+            <p>Your order number is: <span id="order-number">12345</span></p>
+        </div>
+    </div>
+</body>
+<script>
+    let button = document.getElementById("order-btn");
+      
+    let randomTime = Math.floor((Math.random() * 10000) + 1);
+    console.log(randomTime)
+    button.addEventListener("click", function (e) {
+        setTimeout(function () {
+            new Promise(function (resolve, reject) {
+                document.getElementById("hidden").style.display = "block"
+            document.getElementById("order-number").innerText = randomTime
+              
+                resolve("promise resolved")
+            }).then(res => {
+                console.log(res);
+            })
+        }, randomTime)
+
+    })
+
+</script>
+
+</html>
