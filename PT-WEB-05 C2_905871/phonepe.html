@@ -20,26 +20,40 @@
         button {
             height: 35px;
             width: 80px;
-            background-color: rgb(99, 3, 189);
+            background-color:  rgb(111, 9, 206);
             color: white;
             border-radius: 5px;
+            font-size: large;
         }
 
         h1 {
-            color: rgb(99, 3, 189);
+            color: rgb(111, 9, 206);
         }
 
         h2 {
             margin-top: 50px;
         }
+        #successful{
+            width: 300px;
+            height: 200px;
+            border-radius: 5px;
+            margin: auto;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+        }
+        .container{
+            margin-bottom: 15px;
+        }
     </style>
 </head>
 
 <body>
+    <div class="container">
     <h1>Mini PhonePe</h1>
     <input type="number" id="inp" placeholder="Please Enter amount">
     <button id="btn">Pay</button>
-
+  </div>
     <h2 id="successful">
     </h2>
 </body>
@@ -50,9 +64,9 @@
 
     btn.addEventListener("click", function () {
 
-        let inp = document.getElementById("inp").value
+        let inp = +document.getElementById("inp").value
         let suc = document.getElementById("successful")
-
+        console.log(typeof inp)
 
         let mypromise = new Promise(function (resolve, reject) {
 
@@ -66,7 +80,7 @@
             setTimeout(function () {
               
                  if (inp <= 25000) {
-                    resolve("Transiction Successfull " + inp)
+                    resolve("Transiction Successfull " + inp + " Rs.")
                 } else {
                     reject("Transiction Failed")
                 }
@@ -75,10 +89,13 @@
 
         mypromise.then(function (res) {
             suc.innerText = res
-            suc.style.color = "green"
+            suc.style.color = "whitesmoke"
+            suc.style.backgroundColor = "green"
         }).catch(function (err) {
             suc.innerText = err
-            suc.style.color = "red"
+            suc.style.color = "whitesmoke"
+            suc.style.backgroundColor = "orange"
+
         })
 
     })
