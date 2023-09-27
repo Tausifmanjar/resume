@@ -1,0 +1,88 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            text-align: center;
+        }
+
+        input {
+            border-radius: 5px;
+            height: 30px;
+            font-size: large;
+        }
+
+        button {
+            height: 35px;
+            width: 80px;
+            background-color: rgb(99, 3, 189);
+            color: white;
+            border-radius: 5px;
+        }
+
+        h1 {
+            color: rgb(99, 3, 189);
+        }
+
+        h2 {
+            margin-top: 50px;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Mini PhonePe</h1>
+    <input type="number" id="inp" placeholder="Please Enter amount">
+    <button id="btn">Pay</button>
+
+    <h2 id="successful">
+    </h2>
+</body>
+<script>
+    let btn = document.getElementById("btn")
+
+
+
+    btn.addEventListener("click", function () {
+
+        let inp = document.getElementById("inp").value
+        let suc = document.getElementById("successful")
+
+
+        let mypromise = new Promise(function (resolve, reject) {
+
+            if (inp > 0) {
+                suc.innerText = "Processing....."
+                suc.style.color = "black"
+            }else{
+                alert("Please Enter amount greater 0")
+            }
+
+            setTimeout(function () {
+              
+                 if (inp <= 25000) {
+                    resolve("Transiction Successfull " + inp)
+                } else {
+                    reject("Transiction Failed")
+                }
+            }, 2000)
+        })
+
+        mypromise.then(function (res) {
+            suc.innerText = res
+            suc.style.color = "green"
+        }).catch(function (err) {
+            suc.innerText = err
+            suc.style.color = "red"
+        })
+
+    })
+
+</script>
+
+</html>
