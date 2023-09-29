@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+    </style>
+</head>
+<body>
+    <h1>Local Storage</h1>
+    <input type="text" placeholder="Enter Your Name" id="name">
+    <input type="number" placeholder="Enter Your Age" id="age">
+      <button id="submit">Submit</button>
+      <button id="show">Show Data</button>
+      <h1 id="display"></h1>
+</body>
+<script>
+    let name = document.getElementById("name")
+    let age = document.getElementById("age")
+   let submit = document.getElementById("submit")
+   let show = document.getElementById("show")
+   let display = document.getElementById("display")
+
+   submit.addEventListener("click",function(){
+          localStorage.setItem("Name",name.value)
+          localStorage.setItem("Age",age.value)
+
+   })
+   show.addEventListener("click",function(){
+      display.innerText = "Name is " + localStorage.getItem("Name") + " Age is " + localStorage.getItem("Age")
+   })
+   
+
+
+</script>
+</html>
