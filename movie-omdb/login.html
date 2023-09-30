@@ -1,0 +1,58 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            text-align: center;
+        }
+        input{
+            width: 400px;
+            height: 40px;
+            border: 2px solid black;
+            margin-top: 5px;
+            border-radius: 5px;
+            font-size: large;
+        }
+        button{
+            width: 400px;
+            height: 50px;
+            background-color: skyblue;
+            color: white;
+            border-radius: 5px;
+            font-size: large;
+            margin-top: 10px;
+        }
+    </style>
+</head>
+<body>
+    <form id="login-form">
+        <input type="email" id="email" placeholder="Enter Email">
+        <br>
+        <input type="password" id="password" placeholder="Enter Password">
+        <br>
+        <button>Login</button>
+    </form>
+</body>
+<script>
+    let loginform = document.getElementById("login-form")
+
+    loginform.addEventListener("submit",function(e){
+        e.preventDefault();
+
+        let email = document.getElementById("email").value
+        let password = document.getElementById("password").value
+
+        let localEmail = localStorage.getItem("email")
+        let localPass = localStorage.getItem("password")
+
+        if(email == localEmail && password == localPass){
+            window.location.href = "./adminHome.html"
+        }else{
+            alert("Invalid Email or Password")
+        }
+    })
+</script>
+</html>

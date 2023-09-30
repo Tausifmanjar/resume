@@ -1,0 +1,93 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <style>
+        body{
+            font-family: Arial, Helvetica, sans-serif;
+            margin: 0px;
+            padding: 0px;
+            background-color: wheat;
+
+        }
+        #searchBar{
+             background-color: black;
+             display: flex;
+             justify-content: space-between;
+             align-items: center;
+             width: 90%;
+             height: 150px;
+             margin: auto;
+        }
+        img{
+            height: 120px;
+        }
+       input{
+        width: 30%;
+        height: 40px;
+        border-radius: 5px;
+        background-color: whitesmoke;
+        text-align: center;
+        font-size: large;
+        font-style: italic;
+       }
+       button{
+        width: 120px;
+        height: 40px;
+        border-radius: 5px;
+        font-size: medium;
+        background-color: skyblue;
+        margin-right: 5px;
+       }
+        
+       a{
+        text-decoration: none;
+        color: black;
+       }
+
+
+       #menu{
+        width: 90%;
+       height: 80px;
+       background-color: rgba(0, 0, 0, 0.774);
+       margin: auto;
+       border-radius: 0px 0px  8px 8px;
+       display: flex;
+       justify-content: space-around;
+       color: whitesmoke;
+       align-items: center;
+       }
+       p:hover{
+        color: red;
+        font-size: large;
+       }
+    </style>
+</head>
+<body>
+    <div id="main">
+        <div id="searchBar">
+            <div>
+                <img src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcTm5-1gI3qGA288FwdCiYxMNlkyX-vtBKPFpA&usqp=CAU" alt="">
+            </div>
+            <input type="search" id="searchBox" placeholder="What are you looking for ?">
+
+            <div>
+                <button><a href="./signup.html">SignUp</a></button>
+                <button><a href="./login.html">Login</a></button>
+            </div>
+        </div>
+        <div id="menu">
+            <p>HOME</p>
+            <P>ABOUT US</P>
+            <P>MOVIES</P>
+            <P>GENER</P>
+            <P>YEAR</P>
+            <P>OTT</P>
+            <P>WEB SERIES</P>
+        </div>
+    </div>
+</body>
+
+</html>
