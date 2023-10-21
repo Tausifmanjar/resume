@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Weather and Maps</title>
+    <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+    
+    <div class="container">
+        <input type="text" id="cityInput" placeholder="Enter city...">
+        <button onclick="fetchWeather()">Search</button>
+    
+        <div class="left">
+            <div id="weatherDetails">
+                <img id="weatherIcon" src="" alt="Weather Icon">
+                <p>Min Temp: <span id="minTemp"></span></p>
+                <p>Max Temp: <span id="maxTemp"></span></p>
+                <p>Wind: <span id="wind"></span></p>
+                <p>Clouds: <span id="clouds"></span></p>
+                <p>Sunrise: <span id="sunrise"></span></p>
+                <p>Sunset: <span id="sunset"></span></p>
+            </div>
+        </div>
+    
+        <div class="right">
+            <iframe id="googleMap" src="" frameborder="0"></iframe>
+        </div>
+
+        
+    </div>
+    
+
+    <!-- Weather II -->
+    <div class="forecast-container">
+        <h2>5 Day Forecast</h2>
+        <div class="forecast-days" id="forecastDays">
+            <!-- Individual day forecast will be added here using JavaScript -->
+        </div>
+    </div>
+    
+
+    <script src="scripts.js"></script>
+</body>
+</html>
+
